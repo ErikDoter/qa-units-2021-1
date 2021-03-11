@@ -18,6 +18,7 @@ describe('Order.js', () => {
     });
 
     it('order is null', () => {
+
         const order = {shop: null, date: null}
         const wrapper = shallow(<Order order={order}/>);
         expect(wrapper).toMatchSnapshot();
