@@ -12,6 +12,15 @@ configure({adapter: new Adapter()});
 describe('Order.js', () => {
 
     getDate.mockReturnValue(`22 декабря 2020 года`);
+
+    beforeEach(() => {
+        jest.resetModules();
+    });
+
+    afterAll(() => {
+        jest.resetModules();
+    });
+
     it('Right', () => {
         const wrapper = shallow(<Order order={fakeOrders[1]}/>);
         expect(wrapper).toMatchSnapshot();
@@ -19,7 +28,10 @@ describe('Order.js', () => {
 
     it('order is null', () => {
 
-        const order = {shop: null, date: null}
+        const order = {
+            shop: null,
+            date: null
+        }
         const wrapper = shallow(<Order order={order}/>);
         expect(wrapper).toMatchSnapshot();
     });

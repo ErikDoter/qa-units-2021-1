@@ -103,4 +103,31 @@ describe('sortOrders function', () => {
 			},
 		]);
 	});
+
+	it('works correctly', () => {
+		const orders1 = [
+			{
+				date: 11,
+			},
+			{
+				date: 7,
+			},
+			{
+				date: 12
+			}
+		];
+		const orders2 = [
+			{
+				date: 12,
+			},
+			{
+				date: 11,
+			},
+			{
+				date: 7,
+			}
+		];
+		sortOrders(orders1, sortByDate);
+		expect(orders1).toEqual(orders2);
+	});
 });
